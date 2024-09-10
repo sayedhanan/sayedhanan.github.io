@@ -1,0 +1,49 @@
+baseURL = 'https://sayedhanan.github.io/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+
+[params]
+  author = "Sayed Hanan"
+  description = "Welcome to my AI-focused blog where I share my journey, insights, and projects in artificial intelligence."
+  image = "/images/default-image.jpg"
+  canonicalURL = "https://www.yourwebsite.com/"
+
+[taxonomies]
+  category = "categories"
+  # Add more taxonomies if needed, e.g., tags
+
+[permalinks]
+  blog = "/:section/:title/"
+  # Adjust this based on desired URL structure for posts
+
+[[menu.main]]
+name = "Categories"
+url = "/categories/"
+weight = 1
+# Add more menu items if needed
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      [markup.goldmark.parser.extensions]
+        definitionLists = true
+        footnote = true
+        linkify = true
+        strikethrough = true
+        table = true
+        taskList = true
+
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
+

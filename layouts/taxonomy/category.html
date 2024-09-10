@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+<link rel="stylesheet" href="/css/timeline.css">
+
+<section class="bg-blue-400 md:h-96">
+  <div class="mx-auto max-w-screen-xl">
+
+    <!-- Title and post count -->
+    <div class="flex flex-col items-center pt-24">
+      <h1 class="text-3xl md:text-5xl text-white font-bold">{{ .Title }}</h1>
+      <p class="text-white text-xl mt-2">{{ len .Pages }} Posts</p>
+    </div>
+
+    <div>
+      <nav class="pt-36 md:pt-36 flex flex-wrap">
+        <a href="/blog" class="text-white px-4 py-2 hover:underline"><i class="fa-solid fa-house"></i></a>
+        {{ $categories := .Site.Taxonomies.categories }}
+        {{ range $name, $taxonomy := $categories }}
+          {{ $categoryURL := (printf "/categories/%s" $name | urlize) }}
+          <a href="{{ $categoryURL }}" class="text-white px-4 py-2 hover:underline">{{ $name }}</a>
+        {{ end }}
+      </nav>
+    </div>
+  </div>
+</section>
+
+<div class="timeline-container mx-auto max-w-screen-xl">
+  {{ range .Pages }}
+    {{ partial "blog/timeline-card.html" . }}
+  {{ end }}
+</div>
+
+{{ end }}

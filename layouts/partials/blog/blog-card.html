@@ -1,0 +1,37 @@
+<!-- layouts/partials/blog-card-pagination.html -->
+<div class="bg-white shadow-md rounded-md overflow-hidden flex flex-col h-full">
+    
+  <!-- Image -->
+  <!-- <a href="{{ .RelPermalink }}">
+      <img class="w-full object-cover h-64 sm:h-40" src="https://via.placeholder.com/500x300" alt="{{ .Title }}">
+  </a> -->
+
+  <div class="p-6 flex flex-col flex-grow">
+      <!-- Title -->
+      <h3 class="text-xl font-bold mb-2">
+          <a href="{{ .RelPermalink }}" class="hover:underline">{{ .Title }}</a>
+      </h3>
+
+      <!-- Author -->
+      <p class="flex items-center text-gray-600 text-sm mb-2">
+          <!-- Font Awesome user icon -->
+          <i class="fa-regular fa-user"></i>
+          <!-- Author's name from site parameters with link to about page -->
+          <a href="/about" class="hover:text-gray-800 px-2">{{ .Site.Params.author }}</a>
+      </p>
+
+      <!-- Date -->
+      <!-- <p class="text-gray-500 mb-2">{{ .Date.Format "January 2, 2006" }}</p> -->
+
+      <!-- Summary -->
+      <p class="text-gray-700 mb-4 flex-grow">{{ .Summary | truncate 100 }}</p>
+
+      <!-- Reading Time -->
+      <div class="flex items-center text-gray-600 text-sm mt-auto">
+          <!-- Font Awesome clock icon -->
+          <!-- <i class="fas fa-clock mr-1"></i> -->
+          {{ partial "blog/readingTime.html" . }}
+      </div>
+
+  </div>
+</div>

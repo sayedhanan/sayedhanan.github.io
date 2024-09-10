@@ -1,0 +1,41 @@
+<header class="fixed top-0 w-full z-50 bg-white bg-opacity-75 shadow-md">
+  <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+    <!-- Logo or Title -->
+    <div class="">
+      <span class="text-xl font-bold pl-2">Your Name</span>
+    </div>
+
+    <div class="">
+
+      <!-- Centered Navigation Menu for Desktop -->
+      <nav class="hidden md:flex md:items-center md:justify-center flex-grow space-x-10">
+        <a href="/" class="text-gray-700 hover:text-gray-900 hover:text-sky-400">Home</a>
+        <a href="/blog" class="text-gray-700 hover:text-gray-900 hover:text-sky-400">Blog</a>
+        <a href="/about" class="text-gray-700 hover:text-gray-900 hover:text-sky-400">About</a>
+        <a href="/contact" class="text-gray-700 hover:text-gray-900 hover:text-sky-400">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Hamburger Menu Button for Mobile Devices -->
+    <button class="text-gray-700 md:hidden focus:outline-none" id="navbar-toggle">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden hidden bg-white border-t border-gray-200" id="navbar-menu">
+    <a href="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 hover:text-gray-900">Home</a>
+    <a href="/blog" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 hover:text-gray-900">Blog</a>
+    <a href="/about" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 hover:text-gray-900">About</a>
+    <a href="/contact" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 hover:text-gray-900">Contact</a>
+  </div>
+</header>
+
+<script>
+  document.getElementById('navbar-toggle').addEventListener('click', function () {
+    var menu = document.getElementById('navbar-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>

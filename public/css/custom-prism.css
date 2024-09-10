@@ -1,0 +1,21 @@
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #000;
+    background: 0 0;
+    text-shadow: none;  /* Remove text shadow */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    tab-size: 2;  /* Changed from 4 to 2 */
+    hyphens: none;
+}
+
+language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 0%, 0);
+}

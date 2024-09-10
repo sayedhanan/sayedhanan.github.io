@@ -1,0 +1,43 @@
+{{ define "custom-head" }}
+
+  <!-- Specific CSS for blog Page --> 
+  <link rel="stylesheet" href="{{ "/css/timeline.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "/css/timeline.css.map" | relURL }}">
+
+  <!-- Specific JS for blog Page -->
+
+
+{{ end }}
+
+{{ define "main" }}
+
+
+<section class=" bg-blue-400 md:h-96">
+    <div class="mx-auto max-w-screen-xl">
+
+        <div class="flex items-center md:pt-36 justify-center">
+            <h1 class="text-3xl md:text-5xl text-white font-bold">Blog</h1>
+        </div>
+
+        <div>
+            <nav class="pt-36 md:pt-36 flex flex-wrap">
+                <a href="/blog" class="text-white px-4 py-2 hover:underline"><i class="fa-solid fa-house"></i></a>
+
+                {{ $categories := .Site.Taxonomies.categories }}
+                {{ range $name, $taxonomy := $categories }}
+                  <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="text-white px-4 py-2 hover:underline">{{ $name }}</a>
+                {{ end }}
+            </nav>
+        </div>
+    </div>
+</section>
+
+<div class="timeline-container mx-auto max-w-screen-xl">
+    {{ range .Site.RegularPages }}
+      {{ if eq .Section "blog" }}
+        {{ partial "blog/timeline-card.html" . }}
+      {{ end }}
+    {{ end }}
+</div>
+
+{{ end }}

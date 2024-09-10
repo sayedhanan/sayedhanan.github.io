@@ -1,0 +1,42 @@
+<!-- <div class="shadow-md rounded-lg p-4 mb-4 hover:bg-gray-200 transition duration-300 ease-in-out">
+	<div class="container-timeline">
+		<div class="timeline-item">
+			<h3 class="text-xl font-semibold text-black mb-2">
+				<a href="{{ .Permalink }}" class="hover:underline">
+					{{ .Title }}
+			</h3>
+			<p class="text-gray-700 mt-2">
+				{{ .Summary | truncate 200 }}
+			</p>
+			</a>
+			<div class="mt-4">
+				{{ partial "blog/readingTime.html" . }}
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="">
+
+	<div class="container-timeline hover:bg-white-600 bg-opacity-10 rounded-lg">
+
+		<div class="timeline-item">
+			<h3>
+				<a href="{{ .Permalink }}">{{ .Title }}
+			</h3>
+			<!-- <h1>{{.Title}}</h1> -->
+			<p class="roboto-regular mt-2">
+				{{.Summary | truncate 200}}
+			</p>
+
+			<div class="mt-4">
+				{{ partial "blog/readingTime.html" . }}
+			</div>
+			</a>
+		</div>
+
+
+
+	</div>
+</div>

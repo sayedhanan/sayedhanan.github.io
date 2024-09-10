@@ -1,0 +1,27 @@
+<!-- <nav class="border-b border-gray-200">
+  <div class="flex space-x-4" id="nav-tab" role="tablist">
+    {{ $tabTotal := .Get "tabTotal" }}
+    {{ $tabRightAlign := .Get "tabRightAlign" }}
+    {{ $tabName := .Scratch.Get "tabName" }}
+    {{ $tabID := .Scratch.Get "tabID" }}
+
+    {{ range $i, $sequence := (seq $tabTotal) }}
+    <a class="py-2 px-4 text-sm font-medium cursor-pointer {{ if eq $i 0 }}border-b-2 border-blue-500 text-blue-600{{ else }}text-gray-600 hover:text-blue-600{{ end }} {{ if in $tabRightAlign (add 1 $i) }}ml-auto{{ end }}"
+       id="nav-{{ (index $tabID $i) }}" data-toggle="tab" href="#{{ (index $tabID $i) }}"
+       role="tab" aria-controls="nav-home" aria-selected="true">{{ (replaceRE "(\\s)" "" (index $tabName $i)) }}</a>
+    {{ end }}
+  </div>
+</nav>
+
+<div class="tab-content mt-4" id="nav-tab-content">
+  {{ .Inner }}
+</div> -->
+
+
+{{ $id := printf "code-%s-%d" (.Get 0) (now.UnixNano) }}
+<div class="tab-content" data-lang="{{ lower (.Get 0) }}" style="display: none;">
+  <div class="code-block">
+    <button class="copy-button" data-clipboard-target="#{{ $id }}">Copy</button>
+    <pre><code id="{{ $id }}" class="language-{{ lower (.Get 0) }}">{{ trim .Inner "\n" }}</code></pre>
+  </div>
+</div>

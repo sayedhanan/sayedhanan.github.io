@@ -1,0 +1,101 @@
+
+<div class="code-wrapper" id="wrapper-{{ now.Unix }}">
+  <div class="tab-buttons">
+    {{ range .Params }}
+      <button class="tab-button" data-lang="{{ . }}">{{ . }}</button>
+    {{ end }}
+  </div>
+  <div class="tab-contents">
+    {{ .Inner }}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const wrapper = document.getElementById('wrapper-{{ now.Unix }}');
+  const buttons = wrapper.querySelectorAll('.tab-button');
+  const contents = wrapper.querySelectorAll('.tab-content');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const lang = button.dataset.lang.toLowerCase();
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.style.display = 'none');
+      button.classList.add('active');
+      const activeContent = wrapper.querySelector(`.tab-content[data-lang="${lang}"]`);
+      if (activeContent) {
+        activeContent.style.display = 'block';
+      }
+    });
+  });
+
+  // Activate the first tab by default
+  if (buttons.length > 0) {
+    buttons[0].click();
+  }
+});
+</script>
+
+<!-- <style>
+    .code-wrapper .lang-tabs {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .code-wrapper .lang-tab {
+        padding: 10px 15px;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .code-wrapper .lang-tab.active {
+        border-bottom: 2px solid #007bff;
+    }
+
+    .code-wrapper .code-block {
+        display: none;
+    }
+
+    .code-wrapper .code-block.active {
+        display: block;
+    }
+</style> -->
+
+
+<style>
+.code-wrapper .tab-buttons {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.code-wrapper .tab-button {
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.code-wrapper .tab-button.active {
+  border-bottom: 2px solid #007bff;
+}
+
+.code-wrapper .tab-content {
+  display: none;
+}
+
+.code-wrapper .code-block {
+  position: relative;
+}
+
+/* .code-wrapper .copy-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+} */
+</style>

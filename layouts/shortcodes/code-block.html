@@ -1,0 +1,29 @@
+<!-- {{ $id := sha1 .Inner }}
+<div class="code-block">
+  <button class="copy-button" data-clipboard-target="#code{{ $id }}">
+    Copy
+  </button>
+  <pre><code id="code-{{ $id }}">{{ .Inner }}</code></pre>
+</div> -->
+
+
+<!-- {{ $id := printf "code-%d" .Ordinal }}
+<div class="code-block">
+  <button class="copy-button" data-clipboard-target="#{{ $id }}">
+    Copy
+  </button>
+  <pre><code id="{{ $id }}">{{ .Inner }}</code></pre>
+</div> -->
+
+
+<!-- {{ $id := .Get "id" | default (printf "code-%d" (.Ordinal)) }}
+<div class="code-block">
+  <button class="copy-button" data-clipboard-target="#{{ $id }}">Copy</button>
+  <pre><code id="{{ $id }}" class="language-{{ .Get "language" }}">{{ .Inner }}</code></pre>
+</div> -->
+
+{{ $id := .Get "id" | default (printf "code-%d" (.Ordinal)) }}
+<div class="code-block">
+  <button class="copy-button" data-clipboard-target="#{{ $id }}">Copy</button>
+  <pre><code id="{{ $id }}" class="language-{{ .Get "language" }}">{{ .Inner }}</code></pre>
+</div>

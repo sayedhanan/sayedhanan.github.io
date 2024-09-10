@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{ .Title }}</title>
+    {{- partial "head_custom.html" . -}}
+    {{- partial "global-links.html" . -}}
+
+    <!-- Custom head block -->
+    {{ block "custom-head" . }}
+    {{ end }}
+
+</head>
+
+<body class="bg-gradient-radial">
+
+    <div class="mb-20">
+        {{- partial "header.html" . -}}
+    </div>
+
+    <main class="">
+        <!-- Page content will be included here -->
+        {{- block "main" . }}{{ end -}}
+
+
+
+
+    </main>
+
+    <div class="">
+        {{- partial "footer.html" . -}}
+    </div>
+
+    <!-- Include any additional scripts here -->
+
+</body>
+
+</html>
+
+<style>
+    .bg-gradient-radial {
+        /* Original radial gradient */
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(circle, rgba(122, 218, 232, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+</style>

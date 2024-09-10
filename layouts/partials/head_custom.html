@@ -1,0 +1,30 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Params.description }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta property="og:description" content="{{ .Params.description }}">
+    <meta property="og:image" content="{{ .Params.image }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+  
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}">
+    <meta name="twitter:description" content="{{ .Params.description }}">
+    <meta name="twitter:image" content="{{ .Params.image }}">
+  
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/css/output.css">
+  
+    <!-- Global JavaScript Libraries -->
+  
+  </head>
+  

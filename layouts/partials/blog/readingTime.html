@@ -1,0 +1,24 @@
+{{/* Calculate reading time in minutes */}}
+{{ $wordCount := len (split .Content " ") }}
+{{ $readingSpeed := 200 }} <!-- Adjust this value according to your average reading speed -->
+{{ $readingTime := div $wordCount $readingSpeed }}
+
+{{/* Display post details with clock icon */}}
+<div class="post-details roboto-light flex items-center space-x-2"> <!-- Assuming you're using flexbox -->
+    <span class="roboto-light">{{ dateFormat "January 2, 2006" .Date }}</span>
+
+    <div class="flex items-center  space-x-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="6" x2="12" y2="12"></line>
+            <line x1="12" y1="12" x2="15" y2="15"></line>
+        </svg>
+        <span class="roboto-light ml-1"> <!-- Added ml-1 for left margin -->
+            {{ if eq $readingTime 0 }}
+                1 min read
+            {{ else }}
+                {{ printf "%d min read" $readingTime }}
+            {{ end }}
+        </span>
+    </div>
+</div>
